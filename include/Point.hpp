@@ -16,8 +16,7 @@ public:
     double getZ() const;
 };
 
-std::ostream& operator<<(std::ostream& os, const Point& point) {
-    return os << "(" << point.getX() << ", " << point.getY() << ", " << point.getZ() << ")"; 
-}
+std::ostream& operator<<(std::ostream& os, const Point& point);
+
 
 #endif

@@ -10,7 +10,10 @@ double Point::getY() const {
     return y;
 }
 
-double Point::getY() const {
-    return y;
+double Point::getZ() const {
+    return z;
 }
 
+std::ostream& operator<<(std::ostream& os, const Point& point) {
+    return os << "(" << point.getX() << ", " << point.getY() << ", " << point.getZ() << ")";
+}

@@ -11,5 +11,9 @@ double FirstDerivative::getDy() const {
 }
 
 double FirstDerivative::getDz() const{
-    return dy;
+    return dz;
+}
+
+std::ostream& operator<<(std::ostream& os, const FirstDerivative& derivative) {
+    return os << "(" << derivative.getDx() << ", " << derivative.getDy() << ", " << derivative.getDz() << ")";
 }

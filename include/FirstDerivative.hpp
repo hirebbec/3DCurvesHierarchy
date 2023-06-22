@@ -2,6 +2,7 @@
 #define FIRSTDERIVATIVE_HPP
 
 #include <iostream>
+
 class FirstDerivative {
 private:
     double dx;
@@ -15,8 +16,7 @@ public:
     double getDz() const;
 };
 
-std::ostream& operator<<(std::ostream& os, const FirstDerivative& point) {
-    return os << "(" << point.getDx() << ", " << point.getDy() << ", " << point.getDz() << ")"; 
-}
+std::ostream& operator<<(std::ostream& os, const FirstDerivative& derivative);
+
 
 #endif
