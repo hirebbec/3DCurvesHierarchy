@@ -9,8 +9,8 @@ private:
     double r;
 public:
     Circle(double r);
-    Point getPoint(double t);
-    FirstDerivative getFirstDerivative(double t);
+    virtual Point getPoint(double t);
+    virtual FirstDerivative getFirstDerivative(double t);
 };
 
 #endif
