@@ -1,10 +1,9 @@
 #ifndef ELIPCE_HPP
 #define ELIPCE_HPP
 
-#include "Point.hpp"
-#include "FirstDerivative.hpp"
+#include "Curve.hpp"
 
-class Elipce {
+class Elipce: Curve {
 private:
     double a;
     double b;
@@ -18,8 +17,10 @@ public:
     double getA() const;
     double getB() const;
 
-    virtual Point getPoint(double t) const;
-    virtual FirstDerivative getFirstDerivative(double t) const;
+    Point getPoint(double t) const override;
+    FirstDerivative getFirstDerivative(double t) const override;
+
+    ~Elipce() {};
 };
 
 #endif
