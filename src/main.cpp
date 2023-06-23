@@ -1,25 +1,29 @@
 #include "./../include/Circle.hpp"
 #include "./../include/Elipce.hpp"
 #include "./../include/Helix.hpp"
+#include <random>
+#include <vector>
+#include <memory>
 
 int main() {
-    Curve* circle = new Circle(4.4);
-    Curve* elipce = new Elipce(5.5, 3.3);
-    Curve* helix = new Helix(10.0, 1.5);
-
+    //Task 1
+    /*   Populate a container (e.g. vector or list) of objects of these types 
+    created in random manner with random parameters. */
+    std::vector<std::shared_ptr<Curve>> curves;
     double t = 3.1415 / 4.0;
+    // Инициализация генератора случайных чисел
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    // Создание распределения
+    std::uniform_real_distribution<double> dis(0.0, 10.0);
+    for (int i = 0; i < 5; ++i) {
+        curves.push_back(std::make_shared<Circle>(dis(gen)));
+        curves.push_back(std::make_shared<Elipce>(dis(gen), dis(gen)));
+        curves.push_back(std::make_shared<Helix>(dis(gen), dis(gen)));
+    }
 
-    std::cout << circle->getPoint(t) << std::endl;
-
-    std::cout << circle->getFirstDerivative(t) << std::endl;
-
-    std::cout << elipce->getPoint(t) << std::endl;
-
-    std::cout << elipce->getFirstDerivative(t) << std::endl;
-
-    std::cout << helix->getPoint(t) << std::endl;
-
-    std::cout << helix->getFirstDerivative(t) << std::endl;
-
-    delete circle;
+    for (const auto& curve : curves) {
+        std::cout << curve->getPoint(t) << std::endl;
+        std::cout << curve->getFirstDerivative(t) << std::endl;
+    }           
 }
