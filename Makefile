@@ -4,7 +4,8 @@ CC		=	g++
 CFLAGS	=	-Wall -Wextra -Werror
 RM		=	rm -f
 
-FILES	=	src/main.cpp	src/Circle.cpp	src/FirstDerivative.cpp	src/Point.cpp
+FILES	=	src/main.cpp	src/Circle.cpp	src/FirstDerivative.cpp	src/Point.cpp \
+			src/Elipce.cpp
 
 			
 OBJS	=	$(FILES:%.cpp=%.o)
