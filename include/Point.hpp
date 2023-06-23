@@ -11,6 +11,10 @@ private:
 public:
     Point(double x, double y, double z);
 
+    Point(const Point& other);
+
+    Point& operator=(const Point& other);
+
     double getX() const;
     double getY() const;
     double getZ() const;

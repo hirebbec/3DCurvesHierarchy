@@ -11,6 +11,10 @@ private:
 public:
     FirstDerivative(double dx, double dy, double dz);
 
+    FirstDerivative(const FirstDerivative& other);
+
+    FirstDerivative& operator=(const FirstDerivative& other);
+
     double getDx() const;
     double getDy() const;
     double getDz() const;

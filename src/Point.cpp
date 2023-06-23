@@ -2,6 +2,14 @@
 
 Point::Point(double x, double y, double z): x(x), y(y), z(z) {};
 
+Point::Point(const Point& other): x(other.getX()), y(other.getY()), z(other.getZ()) {};
+
+Point& Point::operator=(const Point& other) {
+    this->x = other.getX();
+    this->y = other.getY();
+    this->z = other.getZ();
+}
+
 double Point::getX() const {
     return x;
 }

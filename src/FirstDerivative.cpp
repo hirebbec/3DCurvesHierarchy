@@ -2,6 +2,14 @@
 
 FirstDerivative::FirstDerivative(double dx, double dy, double dz): dx(dx), dy(dy), dz(dz) {};
 
+FirstDerivative::FirstDerivative(const FirstDerivative& other): dx(other.getDx()), dy(other.getDy()), dz(other.getDz()) {};
+
+FirstDerivative& FirstDerivative::operator=(const FirstDerivative& other) {
+    this->dx = other.getDx();
+    this->dy = other.getDy();
+    this->dz = other.getDz();
+}
+
 double FirstDerivative::getDx() const {
     return dx;
 }

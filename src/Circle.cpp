@@ -10,3 +10,7 @@ Point Circle::getPoint(double t) {
 FirstDerivative Circle::getFirstDerivative(double t) {
     return (FirstDerivative(-r * sin(t), r * cos(t), 0));
 }
+
+Circle::Circle(const Circle& other) {
+    
+}
