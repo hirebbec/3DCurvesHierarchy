@@ -3,11 +3,28 @@
 
 Elipce::Elipce(double a, double b): a(a), b(b) {};
 
-Elipce::Elipce(const Elipce& other): a(other.getA()), b(other.getB()) {};
+Elipce::Elipce(const Elipce& other): a(other.a), b(other.b) {};
+
+Elipce::Elipce(Elipce&& other): a(other.a), b(other.b) {
+    other.a = 0.0;
+    other.b = 0.0;
+}
 
 Elipce& Elipce::operator=(const Elipce& other) {
-    this->a = other.getA();
-    this->b = other.getB();
+    if (this != &other) {
+        this->a = other.a;
+        this->b = other.b;
+    }
+    return *this;
+}
+
+Elipce& Elipce::operator=(Elipce&& other) {
+    if (this != &other) {
+        this->a = other.a;
+        this->b = other.b;
+        other.a = 0.0;
+        other.b = 0.0;
+    }
     return *this;
 }
 

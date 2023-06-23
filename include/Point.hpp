@@ -13,7 +13,11 @@ public:
 
     Point(const Point& other);
 
+    Point(Point&& other);
+
     Point& operator=(const Point& other);
+
+    Point& operator=(Point&& other);
 
     double getX() const;
     double getY() const;

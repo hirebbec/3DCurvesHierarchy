@@ -2,12 +2,32 @@
 
 Point::Point(double x, double y, double z): x(x), y(y), z(z) {};
 
-Point::Point(const Point& other): x(other.getX()), y(other.getY()), z(other.getZ()) {};
+Point::Point(const Point& other): x(other.x), y(other.y), z(other.z) {};
+
+Point::Point(Point&& other): x(other.x), y(other.y), z(other.z) {
+    other.x = 0.0;
+    other.y = 0.0;
+    other.z = 0.0;
+};
 
 Point& Point::operator=(const Point& other) {
-    this->x = other.getX();
-    this->y = other.getY();
-    this->z = other.getZ();
+    if (this != &other) {
+        this->x = other.x;
+        this->y = other.y;
+        this->z = other.z;
+    }
+    return *this;
+}
+
+Point& Point::operator=(Point&& other) {
+    if (this != &other) {
+        this->x = other.x;
+        this->y = other.y;
+        this->z = other.z;
+        other.x = 0.0;
+        other.y = 0.0;
+        other.z = 0.0;
+    }
     return *this;
 }
 

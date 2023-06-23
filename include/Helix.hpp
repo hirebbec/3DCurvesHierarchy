@@ -12,7 +12,11 @@ public:
 
     Helix(const Helix& other);
 
+    Helix(Helix&& other);
+
     Helix& operator=(const Helix& other);
+
+    Helix& operator=(Helix&& other);
 
     double getR() const;
     double getA() const;

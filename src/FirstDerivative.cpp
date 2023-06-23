@@ -2,12 +2,32 @@
 
 FirstDerivative::FirstDerivative(double dx, double dy, double dz): dx(dx), dy(dy), dz(dz) {};
 
-FirstDerivative::FirstDerivative(const FirstDerivative& other): dx(other.getDx()), dy(other.getDy()), dz(other.getDz()) {};
+FirstDerivative::FirstDerivative(const FirstDerivative& other): dx(other.dx), dy(other.dy), dz(other.dz) {};
+
+FirstDerivative::FirstDerivative(FirstDerivative&& other): dx(other.dx), dy(other.dy), dz(other.dz) {
+    other.dx = 0.0;
+    other.dy = 0.0;
+    other.dz = 0.0;
+};
 
 FirstDerivative& FirstDerivative::operator=(const FirstDerivative& other) {
-    this->dx = other.getDx();
-    this->dy = other.getDy();
-    this->dz = other.getDz();
+    if (this != &other) {
+        this->dx = other.dx;
+        this->dy = other.dy;
+        this->dz = other.dz;
+    }
+    return *this;
+}
+
+FirstDerivative& FirstDerivative::operator=(FirstDerivative&& other) {
+    if (this != &other) {
+        this->dx = other.dx;
+        this->dy = other.dy;
+        this->dz = other.dz;
+        other.dx = 0.0;
+        other.dy = 0.0;
+        other.dz = 0.0;
+    }
     return *this;
 }
 

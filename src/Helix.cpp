@@ -3,11 +3,28 @@
 
 Helix::Helix(double r, double a): r(r), a(a) {};
 
-Helix::Helix(const Helix& other): r(other.getR()), a(other.getA()) {};
+Helix::Helix(const Helix& other): r(other.r), a(other.a) {};
+
+Helix::Helix(Helix&& other): r(other.r), a(other.a) {
+    other.a = 0.0;
+    other.r = 0.0;
+};
 
 Helix& Helix::operator=(const Helix& other) {
-    this->r = other.getR();
-    this->a = other.getA();
+    if (this != &other) {
+        this->r = other.getR();
+        this->a = other.getA();
+    }
+    return *this;
+}
+
+Helix& Helix::operator=(Helix&& other) {
+    if (this != &other) {
+        this->r = other.r;
+        this->a = other.a;
+        other.a = 0.0;
+        other.r = 0.0;
+    }
     return *this;
 }
  

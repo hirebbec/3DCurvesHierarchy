@@ -12,7 +12,11 @@ public:
     
     Elipce(const Elipce& other);
 
+    Elipce(Elipce&& other);
+
     Elipce& operator=(const Elipce& other);
+
+    Elipce& operator=(Elipce&& other);    
 
     double getA() const;
     double getB() const;

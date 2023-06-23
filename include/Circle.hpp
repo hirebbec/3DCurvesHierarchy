@@ -11,7 +11,11 @@ public:
 
     Circle(const Circle& other);
 
+    Circle(Circle&& other);
+
     Circle& operator=(const Circle& other);
+
+    Circle& operator=(Circle&& other);
 
     double getR() const ;
 

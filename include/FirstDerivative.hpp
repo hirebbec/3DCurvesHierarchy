@@ -13,7 +13,11 @@ public:
 
     FirstDerivative(const FirstDerivative& other);
 
+    FirstDerivative(FirstDerivative&& other);
+
     FirstDerivative& operator=(const FirstDerivative& other);
+
+    FirstDerivative& operator=(FirstDerivative&& other);
 
     double getDx() const;
     double getDy() const;
