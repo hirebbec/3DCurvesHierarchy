@@ -8,6 +8,7 @@ Point& Point::operator=(const Point& other) {
     this->x = other.getX();
     this->y = other.getY();
     this->z = other.getZ();
+    return *this;
 }
 
 double Point::getX() const {

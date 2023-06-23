@@ -8,6 +8,7 @@ FirstDerivative& FirstDerivative::operator=(const FirstDerivative& other) {
     this->dx = other.getDx();
     this->dy = other.getDy();
     this->dz = other.getDz();
+    return *this;
 }
 
 double FirstDerivative::getDx() const {
