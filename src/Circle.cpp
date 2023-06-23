@@ -3,14 +3,17 @@
 
 Circle::Circle(double r): r(r) {};
 
-Point Circle::getPoint(double t) {
+Point Circle::getPoint(double t) const {
     return (Point(r * cos(t), r * sin(t), 0));
 }
 
-FirstDerivative Circle::getFirstDerivative(double t) {
+FirstDerivative Circle::getFirstDerivative(double t) const {
     return (FirstDerivative(-r * sin(t), r * cos(t), 0));
 }
 
-Circle::Circle(const Circle& other) {
-    
+double Circle::getR() const {
+    return r;
 }
+
+Circle::Circle(const Circle& other): r(other.getR()) {};
+

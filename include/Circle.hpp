@@ -13,9 +13,11 @@ public:
     Circle(const Circle& other);
 
     Circle& operator=(const Circle& other);
-    
-    virtual Point getPoint(double t);
-    virtual FirstDerivative getFirstDerivative(double t);
+
+    double getR() const ;
+
+    virtual Point getPoint(double t) const;
+    virtual FirstDerivative getFirstDerivative(double t) const;
 };
 
 #endif
