@@ -3,7 +3,7 @@
 
 #include "Curve.hpp"
 
-class Elipce: Curve {
+class Elipce: public Curve {
 private:
     double a;
     double b;

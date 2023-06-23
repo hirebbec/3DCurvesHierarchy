@@ -13,9 +13,9 @@ int main() {
 
     std::cout << circle->getFirstDerivative(t) << std::endl;
 
-    std::cout << elipce.getPoint(t) << std::endl;
+    std::cout << elipce->getPoint(t) << std::endl;
 
-    std::cout << elipce.getFirstDerivative(t) << std::endl;
+    std::cout << elipce->getFirstDerivative(t) << std::endl;
 
     std::cout << helix.getPoint(t) << std::endl;
 
