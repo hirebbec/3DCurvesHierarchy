@@ -15,7 +15,6 @@ int main() {
     /*   Populate a container (e.g. vector or list) of objects of these types 
     created in random manner with random parameters. */
     std::vector<std::shared_ptr<Curve>> curves;
-    double t = 3.1415 / 4.0;
     // Инициализация генератора случайных чисел
     std::random_device rd;
     std::mt19937 gen(rd());
