@@ -1,10 +1,9 @@
 #ifndef CIRCLE_HPP
 #define CIRCLE_HPP
 
-#include "FirstDerivative.hpp"
-#include "Point.hpp"
+#include "Curve.hpp"
 
-class Circle {
+class Circle: public Curve {
 private:
     double r;
 public:
@@ -16,8 +15,11 @@ public:
 
     double getR() const ;
 
-    virtual Point getPoint(double t) const;
-    virtual FirstDerivative getFirstDerivative(double t) const;
+    Point getPoint(double t) const override;
+
+    FirstDerivative getFirstDerivative(double t) const override;
+
+    ~Circle() override {};
 };
 
 #endif

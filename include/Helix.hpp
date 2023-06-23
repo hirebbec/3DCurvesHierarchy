@@ -1,10 +1,9 @@
 #ifndef HELIX_HPP
 #define HELIX_HPP
 
-#include "Point.hpp"
-#include "FirstDerivative.hpp"
+#include "Curve.hpp"
 
-class Helix {
+class Helix: public Curve {
 private:
     double r;
     double a;
@@ -18,8 +17,10 @@ public:
     double getR() const;
     double getA() const;
 
-    Point getPoint(double t) const;
-    FirstDerivative getFirstDerivative(double t) const;
+    Point getPoint(double t) const override;
+    FirstDerivative getFirstDerivative(double t) const override;
+
+    ~Helix() {};
 };
 
 #endif
