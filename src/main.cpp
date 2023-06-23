@@ -6,7 +6,7 @@
 #include <memory>
 
 int main() {
-    //Task 1
+    //Task 2
     /*   Populate a container (e.g. vector or list) of objects of these types 
     created in random manner with random parameters. */
     std::vector<std::shared_ptr<Curve>> curves;
