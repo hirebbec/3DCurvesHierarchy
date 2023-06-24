@@ -3,9 +3,10 @@ LIBNAME = lib${NAME}.so
 BONUS_NAME = 3DCursiveHierarchy_bonus
 MAIN_PATH = src/main.cpp
 LIB_PATH = .
+LDFLAGS = -fopenmp
 
 CC = g++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fopenmp
 RM = rm -f
 
 FILES = src/main.cpp src/Circle.cpp src/FirstDerivative.cpp src/Point.cpp \
@@ -17,7 +18,7 @@ OBJS = $(FILES:%.cpp=%.o)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+	$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
 
 all: $(NAME)
 
@@ -30,7 +31,7 @@ fclean: clean
 re: fclean all
 
 bonus: $(OBJS)
-	$(CC) $(OBJS) -shared -o $(LIBNAME)
-	$(CC) $(MAIN_PATH) -L$(LIB_PATH) -l$(NAME) -o $(BONUS_NAME)
+	$(CC) $(OBJS) -shared -o $(LIBNAME) $(LDFLAGS)
+	$(CC) $(MAIN_PATH) -L$(LIB_PATH) -l$(NAME) -o $(BONUS_NAME) $(LDFLAGS)
 
 .PHONY: all clean fclean re bonus
