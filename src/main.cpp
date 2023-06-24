@@ -5,6 +5,7 @@
 #include <vector>
 #include <memory>
 #include <algorithm>
+#include <omp.h>
 
 bool compareCirclesByRadius(const std::shared_ptr<Circle>& circle1, const std::shared_ptr<Circle>& circle2) {
     return circle1->getR() < circle2->getR();
@@ -50,7 +51,10 @@ int main() {
     // Task 6
     /*Compute the total sum of radii of all curves in the second container.*/
     double sum = 0.0;
-    for (auto it = circles.begin(); it != circles.end(); ++it) {
-        sum += (*it).get()->getR();
+    #pragma omp parallel for reduction(+:sum)
+    for (auto i = 0u; i < circles.size(); ++i) {
+        sum += circles[i]->getR();
     }
+    
+    std::cout << "Total sum of radii: " << sum << std::endl;
 }
