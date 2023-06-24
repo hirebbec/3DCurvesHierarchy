@@ -35,9 +35,9 @@ This will compile the source files, generate a shared object file named `lib3DCu
 
 After building the executables, you can run them as follows:
 
-- For the main executable:
+make - For the main executable:
 
-- For the bonus executable:
+make bonus - For the bonus executable:
 
 ## Example
 
